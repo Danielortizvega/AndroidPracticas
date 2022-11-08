@@ -32,3 +32,19 @@ Toast.makeText(getApplicationContext(), "No existe el archivo", Toast.LENGTH_LON
 e.printStackTrace();
 }
 }
+
+
+
+
+//para mandar objetos a otra actividad
+void oncreate(buidle savedInstanceState){
+super.onCreate (savedInstanceState);
+setContentView(R.Layout.editar_palabra);
+ListView vistalista = (ListView)findViewById(R.id.palabras);}
+
+intent i = getIntent();
+partida = (partida) i.getSerializableExtra("partida");
+
+if(id==R.id.editarpalabras){
+Intent intent = new Intent(this,EditarPalabras.class);
+intent.put}

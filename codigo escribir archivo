@@ -1,0 +1,34 @@
+public void escribirArchivo() {
+String nombreArchivo = "palabras.txt";
+try {
+OutputStreamWriter archivo = new OutputStreamWriter(openFileOutput(nombreArchivo, Context.MODE_PRIVATE));
+archivo.write("codigo\n");
+archivo.write("android\n");
+archivo.write("programacion\n");
+archivo.flush();
+archivo.close();
+Toast.makeText(getApplicationContext(), "Datos guardados", Toast.LENGTH_LONG).show();
+} catch (FileNotFoundException e) {
+Toast.makeText(getApplicationContext(), "No se pudo crear el archivo", Toast.LENGTH_LONG).show();
+} catch (IOException e) {
+e.printStackTrace();
+}
+}
+public void leerArchivo(){
+String nombreArchivo = "palabras.txt";
+try{
+InputStreamReader archivo = new InputStreamReader(openFileInput(nombreArchivo));
+BufferedReader br = new BufferedReader(archivo);
+String linea = br.readLine();
+while (linea != null){
+p.insertarPalabra(linea);
+linea = br.readLine();
+}
+br.close();
+archivo.close();
+} catch (FileNotFoundException e) {
+Toast.makeText(getApplicationContext(), "No existe el archivo", Toast.LENGTH_LONG).show();
+} catch (IOException e) {
+e.printStackTrace();
+}
+}
